@@ -8,7 +8,7 @@ app.config['SECRET_KEY'] = '53dd1201743b12e4e75c3104b14d26ef'
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', subtitle='Home Page', text='This is the home page')
+    return render_template('weather.html', subtitle='Home Page', text='This is the home page')
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
