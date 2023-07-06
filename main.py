@@ -21,13 +21,3 @@ def register():
         return redirect(url_for('home')) # if so - send to home page
     return render_template('register.html', title='Register', form=form)
 
-
-{% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    {% for category, message in messages %}
-       <div class="alert alert-{{ category }}">
-         {{ message }}
-      </div>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
