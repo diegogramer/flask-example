@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Greeting and Weather</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1>Welcome to the Second Page!</h1>
+    <form>
+        <label for="name">What is your name?</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var message = "Hello, " + name + "! The weather in Chihuahua is 100F°.";
+            document.getElementById('result').textContent = message;
+        });
+    </script>
+</body>
+
+</html>

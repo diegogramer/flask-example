@@ -1,0 +1,9 @@
+.weather-link {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.weather-link:hover {
+    color: red;
+}
