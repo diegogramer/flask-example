@@ -1,3 +1,4 @@
+import git
 from flask import Flask, render_template, url_for, flash, redirect
 from forms import RegistrationForm
 from flask_behind_proxy import FlaskBehindProxy
@@ -14,6 +15,16 @@ if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
 
 @app.route("/register", methods=['GET', 'POST'])
+
+@app.route("/update_server", methods=['POST'])
+def webhook():
+    if request.method == 'POST':
+        repo = git.Repo('/home/diegogramer/flask-example')
+        origin = repo.remotes.origin
+        origin.pull()
+        return 'Updated PythonAnywhere successfully', 200
+    else:
+        return 'Wrong event type', 400
 def register():
     form = RegistrationForm()
     if form.validate_on_submit(): # checks if entries are valid
